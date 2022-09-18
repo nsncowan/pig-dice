@@ -9,13 +9,19 @@
   <Body>
     <div class="container">
       <h1>Pig Dice</h1>
-      <div class="playerInput">
-        <form>
-          <label for="userName">Name</label>
-          <input id="userName" type="text">
-          <button type="submit" class="btn-primary">Submit Name</button>
-        </form>
+      
+      <div class="playerOne">
+        <h2>Player 1</h2>
+        <h2 id="playerOneScore"></h2>
       </div>
+      <div class="playerTwo">
+        <h2>Player 2</h2>
+        <h2 id="playerTwoScore"></h2>
+      </div>
+      <div id="currentTurn"></div>
+
+      <button id="rollDice" class="btn btn-primary">Roll Dice!</button>
+      <button id="endTurn" class="btn btn-secondary">End Turn!</button>
     </div>
 
   </Body>
