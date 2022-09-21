@@ -1,0 +1,14 @@
+#container {
+  min-height: 30vh;
+  display: flex;
+}
+
+.playerOne {
+  text-align: center;
+  float: left;
+}
+
+.playerTwo {
+  text-align: center;
+  float: right
+}

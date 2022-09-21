@@ -1,47 +1,58 @@
 // business logic
 
-/*
-function activePlayer(){
-
-}
-
-function playerOne() {
-  score = playerOneScore
-  activePlayer = true
-}
-
-function playerTwo() {
-  score = playerTwoScore
-  activePlayer = false
-}
-*/
-
-let playerOneScore = document.getElementById("playerOneScore");
-let playerTwoScore = document.getElementById("playerTwoScore");
-let currentTurn = document.getElementById("currentTurn");
-let playerOne = 1
-
 // dice variable
+function Player() {
+  this.activePlayer = 1;
+  this.currentTurn = currentTurn;
+}
 
-function playerRoll() {
-  let roll = Math.floor(Math.random() * 6) + 1;
-  if (roll !== 1) {
-    currentTurn += roll;
+Player.prototype.roll = function () {
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+Player.prototype.diceRoll = function() {
+  if (this.roll !== 1) {
+    this.currentTurn += this.roll;
   } else {
-      currentTurn = 0;
+      this.currentTurn = 0;
   }
 }
 
-function addScore() {
-  if (playerOne = 1) {
-    playerOneScore += currentTurn;
-    playerOne = 0;
-  } else (playerOne = 0) {
-    playerTwoScore += currentTurn;
-    playerOne = 1;
+Player.prototype.addScore = function() {
+  if (this.activePlayer = 1) {
+    playerOneScore += this.currentTurn;
+    this.activePlayer = 0;
+  } else if (this.activePlayer = 0) {
+    playerTwoScore += this.currentTurn;
+    this.activePlayer = 1;
   }
 }
+
+
 // UI logic
+
+window.addEventListener('load', function() {
+  document.getElementById("rollDice").addEventListener('click', this.diceRoll);
+})
+
+function runGame(event) {
+  event.preventDefault();
+  let playerOneScore = document.getElementById("playerOneScore");
+  let playerTwoScore = document.getElementById("playerTwoScore");
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 // eventlistener for "roll dice" button = run playerRoll()
 // eventlistener for "endturn" button = run addScore()
